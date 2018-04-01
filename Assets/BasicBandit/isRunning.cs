@@ -18,8 +18,14 @@ public class isRunning : MonoBehaviour {
 	}
 
 	void Update (){
-		if (Input.GetKey ("up")) {
-			Animator.SetInteger ("isRunning", 1);
+		if (Input.GetKey ("up"))
+        {
+            if(Input.GetKey ("left shift"))
+            {
+                Animator.SetInteger ("isRunning", 2);    
+            } else {
+                Animator.SetInteger("isRunning", 1);
+            }
 		}  else {
 			Animator.SetInteger ("isRunning", 0);
 		}
