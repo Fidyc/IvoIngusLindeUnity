@@ -19,6 +19,6 @@ LPD:
       
       Interpolation - 
       
-      Transform manipalation -
+      Transform manipulation - Disable animator, enable gravity
       
       Animation - Movement, Trapdoor opening animation
