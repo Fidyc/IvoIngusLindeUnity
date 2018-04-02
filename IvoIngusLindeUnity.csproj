@@ -283,6 +283,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BasicBandit\deathCollision.cs" />
     <Compile Include="Assets\BasicBandit\isRunning.cs" />
     <Compile Include="Assets\Traps\TrapDoor\TrapTrigger.cs" />
   </ItemGroup>
