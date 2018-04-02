@@ -5,6 +5,7 @@ using UnityEngine;
 public class deathCollision : MonoBehaviour {
 
     public GameObject Character;
+    public GameObject GameOverText;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -12,6 +13,8 @@ public class deathCollision : MonoBehaviour {
         {
             Debug.Log("Object collided with deathObjects");
             Character.GetComponent<Animator>().enabled = false;
+            GameOverText.GetComponent<Animation>().Play("GameOverAnim");
+
         }
     }
 }
