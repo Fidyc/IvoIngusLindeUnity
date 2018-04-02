@@ -3,7 +3,9 @@ School Work Unity Project
 
 Goal of the game: Finish the tunnel to get to the key to win the game! Watch out for traps!
 
-Controls: Up - Move forward
+Controls: 
+
+          Up - Move forward
 
           Right - Turn Right
           
