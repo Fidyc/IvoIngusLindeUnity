@@ -286,11 +286,13 @@
     <Compile Include="Assets\BasicBandit\deathCollision.cs" />
     <Compile Include="Assets\BasicBandit\isRunning.cs" />
     <Compile Include="Assets\Game\restartGame.cs" />
+    <Compile Include="Assets\Traps\SpearKiller\SpearKiller.cs" />
     <Compile Include="Assets\Traps\TrapDoor\TrapTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Key\readME keys.txt" />
     <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
+    <None Include="Assets\Stone Age Weapons Pack\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

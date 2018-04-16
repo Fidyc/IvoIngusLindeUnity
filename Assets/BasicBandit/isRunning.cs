@@ -18,19 +18,26 @@ public class isRunning : MonoBehaviour {
 	}
 
 	void Update (){
-		if (Input.GetKey ("up"))
+		if (Input.GetKey ("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s"))
         {
-            if(Input.GetKey ("left shift"))
+            if (Input.GetKey("up") || Input.GetKey("w"))
             {
-                Animator.SetInteger ("isRunning", 2);    
-            } else {
-                Animator.SetInteger("isRunning", 1);
+                if (Input.GetKey ("left shift"))
+                {
+                    Animator.SetInteger ("isRunning", 2);    
+                } else {
+                    Animator.SetInteger("isRunning", 1);
+                }
             }
-		}  else {
+            if (Input.GetKey("down") || Input.GetKey("s"))
+            {
+                Animator.SetInteger("isRunning", 3);
+            }
+        }  else {
 			Animator.SetInteger ("isRunning", 0);
 		}
 
-		if(controller.isGrounded){
+        if (controller.isGrounded){
 			moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 		}
 
