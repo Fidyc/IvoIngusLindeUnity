@@ -21,7 +21,11 @@ public class isRunning : MonoBehaviour {
 	}
 
 	void Update (){
-		if (Input.anyKey)
+        if (Input.GetKey("space"))
+        {
+            Animator.SetInteger("isRunning", 0);
+        }
+        if (Input.anyKey)
         {
             if (Input.GetKey("up") || Input.GetKey("w"))
             {
