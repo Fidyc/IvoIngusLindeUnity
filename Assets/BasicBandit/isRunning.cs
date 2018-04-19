@@ -13,6 +13,7 @@ public class isRunning : MonoBehaviour {
 	public float gravity = 20.0f;
     public GameObject poop;
     public GameObject Character;
+    public GameObject spearTrigger;
     private bool beingHandled = false;
 
     void Start () {
@@ -56,13 +57,15 @@ public class isRunning : MonoBehaviour {
             {
                 Animator.SetInteger("isRunning", 4);
                 GameObject closest;
-                /*closest = FindClosestLever();
+                closest = FindClosestLever();
                 if (closest != null)
                 {
-                    food += 1;
-                    Debug.Log("Food " + food);
-                    Destroy(closest);
-                }*/
+                    if (spearTrigger.GetComponent<MeshCollider>().enabled == true)
+                    {
+                        closest.GetComponent<Animation>().Play("down");
+                        spearTrigger.GetComponent<MeshCollider>().enabled = false;
+                    }
+                }
                 return;
             }
         }  else {
@@ -73,11 +76,11 @@ public class isRunning : MonoBehaviour {
        
         
     }
-    /*
+    
     public GameObject FindClosestLever()
     {
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("pizzaTag");
+        gos = GameObject.FindGameObjectsWithTag("spearLeverTag");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
