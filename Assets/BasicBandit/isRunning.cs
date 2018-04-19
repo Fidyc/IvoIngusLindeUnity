@@ -11,10 +11,8 @@ public class isRunning : MonoBehaviour {
 	public float turnSpeed = 60.0f;
 	private Vector3 moveDirection = Vector3.zero;
 	public float gravity = 20.0f;
-    public GameObject poop;
     public GameObject Character;
     public GameObject spearTrigger;
-    private bool beingHandled = false;
 
     void Start () {
 		controller = GetComponent <CharacterController>();
@@ -103,29 +101,5 @@ public class isRunning : MonoBehaviour {
         {
             return null;
         }
-    }
-    /*public IEnumerator Poop()
-    {
-        GameObject PoopDuplicate;
-        Vector3 pos = Character.transform.position;
-        pos = pos + new Vector3(0, 0, -0.5f);
-        Quaternion rot = Character.transform.rotation;
-        Sleep(500);
-        PoopDuplicate = Instantiate(poop, pos, rot);
-        PoopDuplicate.SetActive(true);
-    }*/
-    private IEnumerator Sleep()
-    {
-        beingHandled = true;
-        // process pre-yield
-        GameObject PoopDuplicate;
-        Vector3 pos = Character.transform.position;
-        pos = pos + new Vector3(0, 0, -0.6f);
-        Quaternion rot = Character.transform.rotation;
-        yield return new WaitForSeconds(1.0f);
-        PoopDuplicate = Instantiate(poop, pos, rot);
-        PoopDuplicate.SetActive(true);
-        // process post-yield
-        beingHandled = false;
     }
 }

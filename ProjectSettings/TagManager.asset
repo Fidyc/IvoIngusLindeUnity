@@ -8,6 +8,7 @@ TagManager:
   - spearKiller
   - pizzaTag
   - needleTag
+  - spearLeverTag
   layers:
   - Default
   - TransparentFX

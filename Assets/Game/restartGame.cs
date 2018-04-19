@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class restartGame : MonoBehaviour {
 
     public GameObject restartButton;
+    public GameObject GameOverText;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class restartGame : MonoBehaviour {
     {
         Debug.Log("You have clicked the button!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+        GameOverText.GetComponent<Animation>().Stop("GameOverAnim");
     }
 
 }
