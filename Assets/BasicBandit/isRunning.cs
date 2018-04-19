@@ -21,6 +21,15 @@ public class isRunning : MonoBehaviour {
 	}
 
 	void Update (){
+        if (controller.isGrounded)
+        {
+            moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+        }
+
+        float turn = Input.GetAxis("Horizontal");
+        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        controller.Move(moveDirection * Time.deltaTime);
+        moveDirection.y -= gravity * Time.deltaTime;
         if (Input.GetKey("space"))
         {
             Animator.SetInteger("isRunning", 0);
@@ -31,49 +40,41 @@ public class isRunning : MonoBehaviour {
             {
                 if (Input.GetKey ("left shift"))
                 {
-                    Animator.SetInteger ("isRunning", 2);    
+                    Animator.SetInteger ("isRunning", 2);
+                    return;
                 } else {
                     Animator.SetInteger("isRunning", 1);
+                    return;
                 }
             }
             if (Input.GetKey("down") || Input.GetKey("s"))
             {
                 Animator.SetInteger("isRunning", 3);
+                return;
             }
             if (Input.GetKeyDown("e"))
             {
                 Animator.SetInteger("isRunning", 4);
                 GameObject closest;
-                closest = FindClosestPizza();
+                /*closest = FindClosestLever();
                 if (closest != null)
                 {
                     food += 1;
                     Debug.Log("Food " + food);
                     Destroy(closest);
-                }
-            }
-            if (Input.GetKeyDown("x") && food > 0 && !beingHandled)
-            {
-                Animator.SetInteger("isRunning", 5);
-                food -= 1;
-                StartCoroutine(Sleep());
+                }*/
+                return;
             }
         }  else {
 			Animator.SetInteger ("isRunning", 0);
-		}
+            return;
+        }
 
-        if (controller.isGrounded){
-			moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
-		}
-
-		float turn = Input.GetAxis("Horizontal");
-		transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-		controller.Move(moveDirection * Time.deltaTime);
-		moveDirection.y -= gravity * Time.deltaTime;
+       
         
     }
-
-    public GameObject FindClosestPizza()
+    /*
+    public GameObject FindClosestLever()
     {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("pizzaTag");
