@@ -5,19 +5,23 @@ Goal of the game: Finish the tunnel to get to the key to win the game! Watch out
 
 Controls: 
 
-          Up - Move forward
+          Up or W - Move forward
 
-          Right - Turn Right
+          Right or D - Turn Right
           
-          Left - Turn Left
+          Left or A - Turn Left
+          
+          Down or S - Move backwards
+          
+          E - Interact
           
 LPD:
 
       Physics - Char trap killer (DeathSphere uses physics)
       
-      Coroutine - Collision triggers, movement controls to play anim
+      Coroutine - Death/Sleep
       
-      Interpolation - 
+      Interpolation - Speed adjust for cutter trap
       
       Transform manipulation - Disable animator, enable gravity
       
