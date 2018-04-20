@@ -9,6 +9,9 @@ TagManager:
   - pizzaTag
   - needleTag
   - spearLeverTag
+  - cutterTag
+  - bladeTag
+  - spearTag
   layers:
   - Default
   - TransparentFX

@@ -54,16 +54,7 @@ public class isRunning : MonoBehaviour {
             if (Input.GetKeyDown("e"))
             {
                 Animator.SetInteger("isRunning", 4);
-                GameObject closest;
-                closest = FindClosestLever();
-                if (closest != null)
-                {
-                    if (spearTrigger.GetComponent<MeshCollider>().enabled == true)
-                    {
-                        closest.GetComponent<Animation>().Play("down");
-                        spearTrigger.GetComponent<MeshCollider>().enabled = false;
-                    }
-                }
+                FindClosestLever();
                 return;
             }
         }  else {
@@ -75,10 +66,12 @@ public class isRunning : MonoBehaviour {
         
     }
     
-    public GameObject FindClosestLever()
+    public void FindClosestLever()
     {
         GameObject[] gos;
+        GameObject[] gosn;
         gos = GameObject.FindGameObjectsWithTag("spearLeverTag");
+        gosn = GameObject.FindGameObjectsWithTag("spearTag");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
@@ -95,11 +88,16 @@ public class isRunning : MonoBehaviour {
         if (distance < 5)
         {
             Debug.Log("distance " + distance);
-            return closest;
-        }
-        else
-        {
-            return null;
+            if (spearTrigger.GetComponent<MeshCollider>().enabled == true)
+            {
+                closest.GetComponent<Animation>().Play("down");
+                spearTrigger.GetComponent<MeshCollider>().enabled = false;
+                foreach (GameObject obj in gosn)
+                {
+                    //Debug.Log(obj.name);
+                    obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y -1.12f, obj.transform.position.z);
+                }
+            }
         }
     }
 }

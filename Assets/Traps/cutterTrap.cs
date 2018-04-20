@@ -27,7 +27,7 @@ public class cutterTrap : MonoBehaviour {
         GameObject cutChild;
         while (true)
         {
-            speed = Mathf.Lerp(speed, 10f, 0.5f);
+            speed = Mathf.Lerp(speed, 10f, 0.1f);
             foreach (GameObject obj in gos)
             {
                 anim = obj.GetComponent<Animation>();
@@ -42,14 +42,14 @@ public class cutterTrap : MonoBehaviour {
                     anim = obj.GetComponent<Animation>();
                     anim["Anim_TrapCutter_Play"].speed = speed;
                     cutChild = obj.transform.GetChild(0).gameObject;
-                    Debug.Log(cutChild.name);
+                    //Debug.Log(cutChild.name);
                     cutChild.GetComponent<MeshCollider>().isTrigger = false;
                 }
                 yield return new WaitForSeconds(10.0f);
                 foreach (GameObject obj in gos)
                 {
                     cutChild = obj.transform.GetChild(0).gameObject;
-                    Debug.Log(cutChild.name);
+                    //Debug.Log(cutChild.name);
                     cutChild.GetComponent<MeshCollider>().isTrigger = true;
                 }
             }
