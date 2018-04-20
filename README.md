@@ -23,6 +23,6 @@ LPD:
       
       Interpolation - Speed adjust for cutter trap
       
-      Transform manipulation - Disable animator, enable gravity
+      Transform manipulation - Spear move down
       
       Animation - Movement, Trapdoor opening animation
