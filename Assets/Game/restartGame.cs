@@ -8,6 +8,7 @@ public class restartGame : MonoBehaviour {
 
     public GameObject restartButton;
     public GameObject GameOverText;
+    public GameObject HudCanvas;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class restartGame : MonoBehaviour {
         Debug.Log("You have clicked the button!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
         GameOverText.GetComponent<Animation>().Stop("GameOverAnim");
+        HudCanvas.SetActive(false);
     }
 
 }

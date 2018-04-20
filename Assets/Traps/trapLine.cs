@@ -29,13 +29,20 @@ public class trapLine : MonoBehaviour
     {
         while (isInside)
         {
-            int randomTime = Random.Range(0, 5);
+            int randomTime = Random.Range(10, 15);
+            yield return new WaitForSeconds(randomTime);
             foreach (GameObject Obj in gos)
             {
                 Obj.GetComponent<Animation>().enabled = false;
             }
             Trap.GetComponent<Animation>().Play("Anim_GreatAxe_Idle");
             yield return new WaitForSeconds(randomTime);
+            foreach (GameObject Obj in gos)
+            {
+                Obj.GetComponent<Animation>().enabled = true;
+            }
+            Trap.GetComponent<Animation>().Play("Anim_GreatAxeTrap_Play");
+            yield return new WaitForSeconds(1.0f);
         }
         while (!isInside)
         {
